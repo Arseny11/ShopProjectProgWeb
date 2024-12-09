@@ -1,4 +1,4 @@
-// YOUR NAME HERE
+// Arseniy RYZHONKOV et Lala MAMMADOVA
 
 // === constants ===
 const MAX_QTY = 9;
@@ -15,10 +15,31 @@ var total = 0;
 // function called when page is loaded, it performs initializations 
 var init = function () {
 	createShop();
+
+	var filterInput = document.getElementById("filter");
+	filterInput.addEventListener("keyup", filterProducts);
 	
 	// TODO : add other initializations to achieve if you think it is required
 }
 window.addEventListener("load", init);
+
+
+var filterProducts = function () {
+    var filterValue = document.getElementById("filter").value.toLowerCase(); // Récupère la valeur du filtre
+    var products = document.getElementsByClassName("produit"); // Récupère tous les produits
+
+    // Parcourir tous les produits pour afficher ou cacher selon le filtre
+    for (var i = 0; i < products.length; i++) {
+        var productName = products[i].getElementsByTagName("h4")[0].textContent.toLowerCase();
+
+        if (productName.includes(filterValue)) {
+            products[i].style.display = "inline-block"; // Affiche le produit
+        } else {
+            products[i].style.display = "none"; // Cache le produit
+        }
+    }
+};
+
 
 
 
@@ -121,5 +142,12 @@ var createOrderControlBlock = function (index) {
 var createFigureBlock = function (product) {
 	// this is absolutely not the correct answer !
 	// TODO 
-	return createBlock("figure", "");
+	var figure = document.createElement("figure");
+	
+	var img = document.createElement("img");
+	img.src = product.image;
+	img.alt = product.name;
+
+	figure.appendChild(img);
+	return figure;
 }
