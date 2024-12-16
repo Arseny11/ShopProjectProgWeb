@@ -130,6 +130,7 @@ var createOrderControlBlock = function (index) {
         if (parseInt(input.value) > MAX_QTY) {
             input.value = MAX_QTY.toString();
         }
+		
     });
 
 
@@ -140,6 +141,15 @@ var createOrderControlBlock = function (index) {
 	var button = document.createElement("button");
 	button.className = 'commander';
 	button.id = index + "-" + orderIdKey;
+	button.style.opacity = "0.25";
+
+	input.addEventListener("input", function() {
+		if (parseInt(input.value) > 0){
+			button.style.opacity = "1";
+		} else {
+			button.style.opacity = "0.25";
+		}
+	});
 	// add control to control as its child
 	control.appendChild(button);
 	
