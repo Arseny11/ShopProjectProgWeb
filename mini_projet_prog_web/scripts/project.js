@@ -43,6 +43,8 @@ var filterProducts = function () {
 
 
 
+
+
 // usefull functions
 
 /*
@@ -106,6 +108,8 @@ var createBlock = function (tag, content, cssClass) {
 *   /!\  in this version button and input do nothing  /!\  
 */
 var createOrderControlBlock = function (index) {
+	
+	
 	var control = document.createElement("div");
 	control.className = "controle";
 
@@ -117,6 +121,18 @@ var createOrderControlBlock = function (index) {
 	input.value = "0";
 	input.min = "0";
 	input.max = MAX_QTY.toString();
+
+	//verifier si les valeurs entrees dans le input sont autorisees
+	input.addEventListener("input", function () {
+        if (parseInt(input.value) < 0) {
+            input.value = "0";
+        }
+        if (parseInt(input.value) > MAX_QTY) {
+            input.value = MAX_QTY.toString();
+        }
+    });
+
+
 	// add input to control as its child
 	control.appendChild(input);
 	
