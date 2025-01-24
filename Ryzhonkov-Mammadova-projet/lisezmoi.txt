@@ -1,0 +1,11 @@
+Projet de Arseniy RYZHONKOV et Lala MAMMADOVA
+
+On a collaboré en utilisant l’extension Live Share sur Visual Studio Code. 
+Grâce à ça, on a pu travailler en même temps sur le même code.
+
+Toutes les questions obligatoires ont ete traités avec succès.
+
+Parmi les questions optionneles on a fait : 
+- La modification de la quantité des articles dans le panier : fonctionnalité implementée, mais avec un petit bug, si on ajoute encore une
+fois le meme article dans le panier depuis la liste, le prix total va changer mais pas le nombre d'articles. Par contre si on modifie le nombre
+d'articles directement dans le panier, tout marche correctement.
